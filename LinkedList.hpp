@@ -2,6 +2,8 @@
 #define LINKED_LIST_HPP
 
 #include "List.hpp"
+#include "LinkedList.tpp"
+
 #include <iostream>
 #include <string>
 
@@ -41,7 +43,7 @@ public:
     friend ostream& operator<<(ostream&, const LinkedList<U>&);
 };
 
-#include "LinkedList.tpp"
+
 #endif
 
 
