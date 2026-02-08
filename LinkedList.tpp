@@ -18,6 +18,7 @@ void LinkedList<T>::append(const T& elem) {
 template <typename T>
 void LinkedList<T>::clear() {
     Node* curr = head;
+
     while (curr != nullptr) {
         Node* toDelete = curr;
         curr = curr->next;
@@ -31,12 +32,12 @@ void LinkedList<T>::clear() {
 template <typename T>
 T LinkedList<T>::getElement(int position) const {
     if (position < 0 || position >= this->length) {
-        throw string("getElement error: position out of range");
+        throw string("getElement: position out of bounds");
     }
 
     Node* curr = head;
     for (int i = 0; i < position; i++) {
-        curr = curr->next;
+        curr = curr->next; // safe because bounds checked
     }
 
     return curr->value;
@@ -45,7 +46,7 @@ T LinkedList<T>::getElement(int position) const {
 template <typename T>
 void LinkedList<T>::replace(int position, const T& elem) {
     if (position < 0 || position >= this->length) {
-        throw string("replace error: position out of range");
+        throw string("replace: position out of bounds");
     }
 
     Node* curr = head;
